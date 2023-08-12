@@ -18,7 +18,7 @@ export const Signin: React.FC<SigninProps> = (props) => {
   };
 
   const onSubmitSignIn = () => {
-    fetch("http://localhost:3001/signin", {
+    fetch("https://smart-brain-backend-v3a7.onrender.com/signin", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

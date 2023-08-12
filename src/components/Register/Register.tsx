@@ -23,7 +23,7 @@ export const Register: React.FC<RegisterProps> = (props) => {
   };
 
   const onSubmitSignIn = () => {
-    fetch("http://localhost:3001/register", {
+    fetch("https://smart-brain-backend-v3a7.onrender.com/register", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

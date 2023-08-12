@@ -72,7 +72,7 @@ const App: React.FC = () => {
     //     input: input,
     //   }),
     // })
-    fetch("https://vali-smartbrain-backend.netlify.app/clarifai", {
+    fetch("https://smart-brain-backend-v3a7.onrender.com/clarifai", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -84,7 +84,7 @@ const App: React.FC = () => {
         displayFaceBox(calculateFaceLocation(result));
 
         if (result) {
-          fetch("http://localhost:3001/image", {
+          fetch("https://smart-brain-backend-v3a7.onrender.com/image", {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
