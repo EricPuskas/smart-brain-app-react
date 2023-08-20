@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 import { Container } from "./Signin.styles";
 
 import { SigninProps } from "./Signin.types";
@@ -18,15 +19,20 @@ export const Signin: React.FC<SigninProps> = (props) => {
   };
 
   const onSubmitSignIn = () => {
-    fetch("https://stark-woodland-76533-134c08db8735.herokuapp.com/signin", {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email: signInEmail,
-        password: signInPassword,
-      }),
-    })
-      .then((response) => response.json())
+    axios
+      .post(
+        "https://stark-woodland-76533-134c08db8735.herokuapp.com/signin",
+        {
+          email: signInEmail,
+          password: signInPassword,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((response) => response.data)
       .then((user) => {
         if (user.id) {
           loadUser(user);
