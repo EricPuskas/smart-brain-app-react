@@ -65,14 +65,14 @@ const App: React.FC = () => {
   const onButtonSubmit = () => {
     setImageUrl(input);
 
-    // fetch("http://localhost:3001/clarifai", {
+    // fetch("http://https://stark-woodland-76533-134c08db8735.herokuapp.com/clarifai", {
     //   method: "POST",
     //   headers: { "Content-Type": "application/json" },
     //   body: JSON.stringify({
     //     input: input,
     //   }),
     // })
-    fetch("https://smart-brain-backend-v3a7.onrender.com/clarifai", {
+    fetch("https://stark-woodland-76533-134c08db8735.herokuapp.com/clarifai", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -84,13 +84,16 @@ const App: React.FC = () => {
         displayFaceBox(calculateFaceLocation(result));
 
         if (result) {
-          fetch("https://smart-brain-backend-v3a7.onrender.com/image", {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              id: user.id,
-            }),
-          })
+          fetch(
+            "https://stark-woodland-76533-134c08db8735.herokuapp.com/image",
+            {
+              method: "PUT",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                id: user.id,
+              }),
+            }
+          )
             .then((response) => response.json())
             .then((count) => {
               setUser((prevState) => ({
